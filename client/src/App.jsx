@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SearchBar from './components/SearchBar';
+import SearchBar from './components/searchBar.jsx';
 import { generateCourse } from './services/api';
 
 function App() {
