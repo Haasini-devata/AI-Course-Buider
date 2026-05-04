@@ -11,24 +11,23 @@ function App() {
   setCourse(null);
 
   try {
-    console.log("📡 Sending request...");
+    console.log(" Sending request...");
 
     const response = await generateCourse(topic);
 
-    console.log("✅ FULL RESPONSE:", response);
-    console.log("✅ RESPONSE DATA:", response.data);
-    console.log("🎯 COURSE STATE:", course);
+    console.log(" FULL RESPONSE:", response);
+    console.log(" RESPONSE DATA:", response.data);
+    console.log(" COURSE STATE:", course);
 
-    // 🔥 Try BOTH formats
   const courseData = response.data;
 
-    console.log("🎯 FINAL COURSE:", courseData);
+    console.log(" FINAL COURSE:", courseData);
 
     setCourse(courseData);
 
   } catch (error) {
-    console.error("❌ API ERROR:", error);
-    console.error("❌ ERROR RESPONSE:", error.response);
+    console.error(" API ERROR:", error);
+    console.error(" ERROR RESPONSE:", error.response);
 
     alert("API failed - check console");
   } finally {
@@ -75,6 +74,17 @@ function App() {
     <div>
       <h4 className="font-bold text-slate-800">{lesson.title}</h4>
       <p className="text-sm text-slate-500">{lesson.content}</p>
+      {lesson.youtubeId && (
+  <iframe
+    width="100%"
+    height="315"
+    src={`https://www.youtube.com/embed/${lesson.youtubeId}`}
+    title="YouTube video"
+    frameBorder="0"
+    allowFullScreen
+    className="mt-4 rounded-lg"
+  ></iframe>
+)}
     </div>
   </div>
 ))}
